@@ -73,18 +73,18 @@ fs.readFile('readme.md', 'utf8', function(err, data) {
 /**
  * CREATING & DELETING***- START* *
  */
-var fs = require('fs');
+/*var fs = require('fs');
 
 //fs.mkdirSync('deleting');
 //fs.rmdirSync() for synchronous behaviour
-/*fs.mkdir('deleting', function() {
+fs.mkdir('deleting', function() {
     fs.readFile('readme.md', 'utf8', function(err, data) {
         fs.writeFile('./deleting/readme.md', data);
     });
-});*/
+});
 fs.unlink('./deleting/readme.md', function() {
     fs.rmdir('deleting');
-});
+});*/
  /*
  * CREATING & DELETING***- END* *
  **/
