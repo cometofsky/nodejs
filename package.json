@@ -4,6 +4,7 @@
   "description": "beginners tutorial learning of nodeJS",
   "main": "app.js",
   "dependencies": {
+    "ejs": "^2.5.1",
     "express": "^4.14.0"
   },
   "devDependencies": {},
