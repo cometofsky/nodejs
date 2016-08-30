@@ -1,7 +1,6 @@
 <html>
     <head>
         <title>Todo List</title>
-        <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js" integrity="sha256-cRpWjoSOw5KcyIOaZNo4i6fZ9tKPhYYb6i5T9RSVJG8=" crossorigin="anonymous"></script>
         <link href="/style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
@@ -9,15 +8,16 @@
 
             <form method="POST" action="/todo">
                 <input type="text" name="item" placeholder="Add new item..." required />
-                <button type="submit">Add Item</button>
+                <button id="submit" type="submit">Add Item</button>
             </form>
 
-            <ul>
+            <ul id="list-todo">
                 <% todos.forEach(function(item) { %>
-                    <li><%= item.item %></li>
+                    <li data-id="<%= item._id%>"><%= item.item %></li>
                 <% }); %>
             </ul>
         </div>
+        <script src="/jquery.min.js"></script>
         <script src="/todo-list.js"></script>
     </body>
 </html>

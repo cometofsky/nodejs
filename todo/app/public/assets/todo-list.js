@@ -1,17 +1,20 @@
-jQuery(document).ready(function($){
+$(document).ready(function(){
 
   $('form').on('submit', function(){
+    
 
-      var item = $('form input');
-      var todo = {item: item.val()};
+      var item = $('form input'),
+          todo = {item: item.val()};
 
-      $.ajax({
+      jQuery.ajax({
         type: 'POST',
         url: '/todo',
         data: todo,
         success: function(data){
-          //do something with the data via front-end framework
-          location.reload();
+          var liItem = "<li data-id='" + data._id + "'>" + data.item + "</li>";
+
+          $("input[name='item']").val('');
+          $("#list-todo").append(liItem);
         }
       });
 
@@ -19,16 +22,23 @@ jQuery(document).ready(function($){
 
   });
 
-  $('li').on('click', function(){
-      var item = $(this).text().replace(/ /g, "-");
-      $.ajax({
+  $('ul').on('click', 'li', function(){
+      
+
+      var $this = $(this);
+      var item = $this.data('id');
+      console.log(item);
+
+
+      jQuery.ajax({
         type: 'DELETE',
         url: '/todo/' + item,
         success: function(data){
-          //do something with the data via front-end framework
-          location.reload();
+          $this.remove();
         }
       });
+
+
   });
 
 });
